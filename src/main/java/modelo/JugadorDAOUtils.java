@@ -12,7 +12,7 @@ import java.io.File;
 
 public class JugadorDAOUtils {
     public static void verificarYCrearDirectorio() {
-        File directorio = new File("H:\\MULWEB 2\\AcDa\\UD1_PE_ManejoFicheros\\Ivan_Pollino_Carreras_UD1_PE_ManejoFicheros\\DATOS");
+        File directorio = new File("DATOS");
         if (!directorio.exists()) {
             directorio.mkdir();
         }
