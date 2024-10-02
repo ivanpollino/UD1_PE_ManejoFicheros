@@ -1,0 +1,11 @@
+modelo\JugadorDAO.class
+modelo\JugadorObjectFileDAO.class
+modelo\JugadorTextFileDAO.class
+modelo\JugadorRandomAccessDAO.class
+modelo\JugadorXMLFileDAO.class
+vista\JugadorView.class
+modelo\Jugador.class
+modelo\JugadorBinaryFileDAO.class
+controlador\JugadorController.class
+modelo\JugadorDAOUtils.class
+run\Run.class
