@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JugadorObjectFileDAO implements JugadorDAO {
-    private static final String FILE_PATH = "DATOS/jugadores.obj";
+    private static final String FILE_PATH = "DATOS/jugadores.dat";
 
     public JugadorObjectFileDAO() {
         JugadorDAOUtils.verificarYCrearDirectorio();
@@ -66,4 +66,3 @@ public class JugadorObjectFileDAO implements JugadorDAO {
         }
     }
 }
-

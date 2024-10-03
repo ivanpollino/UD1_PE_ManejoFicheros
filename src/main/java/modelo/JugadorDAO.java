@@ -17,4 +17,3 @@ public interface JugadorDAO {
     Jugador buscarJugador(int id);
     List<Jugador> obtenerTodosLosJugadores();
 }
-
