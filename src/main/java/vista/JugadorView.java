@@ -15,7 +15,7 @@ public class JugadorView {
     private final Scanner scanner = new Scanner(System.in);
 
     public int mostrarMenuPrincipal() {
-        System.out.println("Menú Principal:");
+        System.out.println("\n========= Menú Principal =========");
         System.out.println("1. Alta de jugadores");
         System.out.println("2. Baja de jugadores");
         System.out.println("3. Modificación de jugadores");
@@ -27,7 +27,7 @@ public class JugadorView {
     }
 
     public int mostrarSubmenuConfiguracion() {
-        System.out.println("Seleccione el tipo de almacenamiento:");
+        System.out.println("\n========= Configuracion =========");
         System.out.println("1. Archivo de texto");
         System.out.println("2. Archivo binario");
         System.out.println("3. Archivo de objetos");

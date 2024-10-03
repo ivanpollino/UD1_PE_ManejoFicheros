@@ -12,6 +12,7 @@ import vista.JugadorView;
  * @author Vespertino
  */
 public class Run {
+    
     public static void main(String[] args) {
         // Crear la vista
         JugadorView vista = new JugadorView();

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JugadorRandomAccessDAO implements JugadorDAO {
-    private static final String FILE_PATH = "DATOS/jugadores.ra";
+    private static final String FILE_PATH = "DATOS/jugadores.dat";
 
     public JugadorRandomAccessDAO() {
         JugadorDAOUtils.verificarYCrearDirectorio();

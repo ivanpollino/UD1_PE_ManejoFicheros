@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="be1bdde2-819f-4f57-8127-f3cf35fbc887" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/JugadorRandomAccessDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/JugadorRandomAccessDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/Run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vista/JugadorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vista/JugadorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/modelo/JugadorRandomAccessDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modelo/JugadorRandomAccessDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/run/Run.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/run/Run.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/vista/JugadorView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vista/JugadorView.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2mwCpX9qtd5xX5hncOY0AY1fdZu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="be1bdde2-819f-4f57-8127-f3cf35fbc887" name="Changes" comment="" />
+      <created>1727978439857</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727978439857</updated>
+      <workItem from="1727978442917" duration="15000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
