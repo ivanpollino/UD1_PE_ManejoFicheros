@@ -4,29 +4,41 @@
  */
 package controlador;
 
-
+import java.util.List;
 import vista.JugadorView;
 import modelo.*;
 
 /**
- *
- * @author Vespertino
+ * Controlador que gestiona las operaciones relacionadas con los jugadores.
+ * Coordina las interacciones entre la vista y el modelo (DAO).
+ * 
+ * @author Ivan Pollino
  */
 public class JugadorController {
+
     private JugadorDAO jugadorDAO;
     private JugadorView vista;
 
+    /**
+     * Constructor que inicializa el controlador.
+     * 
+     * @param vista La vista asociada al controlador.
+     */
     public JugadorController(JugadorView vista) {
         this.vista = vista;
         configurarAlmacenamiento(); // Configuración al inicio
     }
 
-    // Método principal que inicia la aplicación
+    /**
+     * Método principal que inicia la aplicación.
+     */
     public void iniciar() {
         mostrarMenuPrincipal(); // Iniciar el ciclo del menú principal
     }
 
-    // Mostrar el menú principal y delegar las acciones según la opción seleccionada
+    /**
+     * Mostrar el menú principal y delegar las acciones según la opción seleccionada.
+     */
     private void mostrarMenuPrincipal() {
         int opcion;
         do {
@@ -44,7 +56,9 @@ public class JugadorController {
         } while (opcion != 0); // Repetir hasta que el usuario elija salir
     }
 
-    // Mostrar y procesar el submenú de configuración
+    /**
+     * Mostrar y procesar el submenú de configuración de almacenamiento.
+     */
     private void configurarAlmacenamiento() {
         int opcion = vista.mostrarSubmenuConfiguracion();
         switch (opcion) {
@@ -58,26 +72,45 @@ public class JugadorController {
         vista.mostrarMensaje("Almacenamiento configurado.");
     }
 
-    // Alta de jugadores
+    /**
+     * Alta de jugadores.
+     */
     private void altaJugador() {
         Jugador jugador = vista.obtenerDatosJugador();
         jugadorDAO.agregarJugador(jugador);
         vista.mostrarMensaje("Jugador agregado.");
     }
 
-    // Baja de jugadores
+    /**
+     * Baja de jugadores.
+     */
     private void bajaJugador() {
-        int id = vista.solicitarIDJugador();
-        jugadorDAO.eliminarJugador(id);
-        vista.mostrarMensaje("Jugador eliminado.");
-    }
-
-    // Modificación de jugadores
-    private void modificarJugador() {
         int id = vista.solicitarIDJugador();
         Jugador jugador = jugadorDAO.buscarJugador(id);
         if (jugador != null) {
+            jugadorDAO.eliminarJugador(id);
+            vista.mostrarMensaje("Jugador eliminado.");
+        } else {
+            vista.mostrarMensaje("Jugador no encontrado.");
+        }
+    }
+
+    /**
+     * Modificación de jugadores.
+     */
+    private void modificarJugador() {
+        int id = vista.solicitarIDJugador();
+        Jugador jugador = jugadorDAO.buscarJugador(id);
+
+        if (jugador != null) {
+            // Mostrar los datos del jugador actual
+            vista.mostrarJugador(jugador);
+
+            // Solicitar nuevos datos
             Jugador nuevosDatos = vista.obtenerDatosJugador();
+            nuevosDatos.setId(jugador.getId()); // Asegurarse de mantener el mismo ID
+
+            // Modificar el jugador en el DAO
             jugadorDAO.modificarJugador(nuevosDatos);
             vista.mostrarMensaje("Jugador modificado.");
         } else {
@@ -85,7 +118,9 @@ public class JugadorController {
         }
     }
 
-    // Listar jugador por ID
+    /**
+     * Listar jugador por ID.
+     */
     private void listarJugadorPorID() {
         int id = vista.solicitarIDJugador();
         Jugador jugador = jugadorDAO.buscarJugador(id);
@@ -96,14 +131,26 @@ public class JugadorController {
         }
     }
 
-    // Listar todos los jugadores
+    /**
+     * Listar todos los jugadores.
+     */
     private void listarTodosLosJugadores() {
-        for (Jugador jugador : jugadorDAO.obtenerTodosLosJugadores()) {
+        List<Jugador> jugadores = jugadorDAO.obtenerTodosLosJugadores();
+        if (jugadores.isEmpty()) {
+            vista.mostrarMensaje("No hay jugadores registrados.");
+            return;
+        }
+
+        for (Jugador jugador : jugadores) {
             vista.mostrarJugador(jugador);
         }
     }
 
-    // Cambiar el tipo de almacenamiento
+    /**
+     * Cambiar el tipo de almacenamiento de jugadores.
+     * 
+     * @param tipoAlmacenamiento El tipo de almacenamiento deseado.
+     */
     private void setTipoAlmacenamiento(String tipoAlmacenamiento) {
         switch (tipoAlmacenamiento) {
             case "binario":

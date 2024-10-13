@@ -4,10 +4,6 @@
  */
 package modelo;
 
-/**
- *
- * @author Vespertino
- */
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
@@ -17,20 +13,52 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que implementa la interfaz JugadorDAO para gestionar la 
+ * persistencia de objetos Jugador en un archivo XML.
+ * Proporciona métodos para agregar, eliminar, modificar, buscar 
+ * y obtener todos los jugadores.
+ * 
+ * @author Ivan Pollino
+ */
 public class JugadorXMLFileDAO implements JugadorDAO {
     private static final String FILE_PATH = "DATOS/jugadores.xml";
 
+    /**
+     * Constructor que verifica y crea el directorio donde se 
+     * almacenará el archivo XML.
+     */
     public JugadorXMLFileDAO() {
         JugadorDAOUtils.verificarYCrearDirectorio();
     }
 
+    /**
+     * Agrega un nuevo jugador al archivo XML.
+     * Asigna un nuevo ID basado en el último jugador existente.
+     * 
+     * @param jugador el objeto Jugador a agregar.
+     */
     @Override
     public void agregarJugador(Jugador jugador) {
         List<Jugador> jugadores = obtenerTodosLosJugadores();
+
+        // Asignar un nuevo ID basado en el último jugador de la lista
+        int nuevoId = 1;
+        if (!jugadores.isEmpty()) {
+            Jugador ultimoJugador = jugadores.get(jugadores.size() - 1);
+            nuevoId = ultimoJugador.getId() + 1;
+        }
+        jugador.setId(nuevoId); // Establecer el nuevo ID al jugador
+        
         jugadores.add(jugador);
         escribirJugadores(jugadores);
     }
 
+    /**
+     * Elimina un jugador del archivo XML según su ID.
+     * 
+     * @param id el ID del jugador a eliminar.
+     */
     @Override
     public void eliminarJugador(int id) {
         List<Jugador> jugadores = obtenerTodosLosJugadores();
@@ -38,12 +66,24 @@ public class JugadorXMLFileDAO implements JugadorDAO {
         escribirJugadores(jugadores);
     }
 
+    /**
+     * Modifica un jugador en el archivo XML.
+     * Elimina primero el jugador existente y luego lo agrega de nuevo.
+     * 
+     * @param jugador el objeto Jugador con los datos actualizados.
+     */
     @Override
     public void modificarJugador(Jugador jugador) {
         eliminarJugador(jugador.getId());
         agregarJugador(jugador);
     }
 
+    /**
+     * Busca un jugador en el archivo XML según su ID.
+     * 
+     * @param id el ID del jugador a buscar.
+     * @return el objeto Jugador si se encuentra, o null si no se encuentra.
+     */
     @Override
     public Jugador buscarJugador(int id) {
         return obtenerTodosLosJugadores().stream()
@@ -52,6 +92,11 @@ public class JugadorXMLFileDAO implements JugadorDAO {
                 .orElse(null);
     }
 
+    /**
+     * Obtiene una lista de todos los jugadores almacenados en el archivo XML.
+     * 
+     * @return una lista de objetos Jugador.
+     */
     @Override
     public List<Jugador> obtenerTodosLosJugadores() {
         List<Jugador> jugadores = new ArrayList<>();
@@ -82,6 +127,11 @@ public class JugadorXMLFileDAO implements JugadorDAO {
         return jugadores;
     }
 
+    /**
+     * Escribe la lista de jugadores en el archivo XML.
+     * 
+     * @param jugadores la lista de objetos Jugador a escribir.
+     */
     private void escribirJugadores(List<Jugador> jugadores) {
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
